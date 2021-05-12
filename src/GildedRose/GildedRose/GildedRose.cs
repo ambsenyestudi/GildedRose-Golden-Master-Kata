@@ -8,7 +8,7 @@ namespace GildedRose
 {
     public class GildedRose
     {
-        IList<Item> Items;
+        public IList<Item> Items { get; }
         public GildedRose(IList<Item> Items)
         {
             this.Items = Items;

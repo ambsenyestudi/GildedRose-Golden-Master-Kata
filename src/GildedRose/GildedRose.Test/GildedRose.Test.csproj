@@ -20,4 +20,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GildedRose.Domain\GildedRose.Domain.csproj" />
+    <ProjectReference Include="..\GildedRose\GildedRose.csproj" />
+  </ItemGroup>
+
 </Project>
