@@ -58,13 +58,14 @@ namespace GildedRose
                 {
                     if (Items[i].Name != "Aged Brie")
                     {
-                        if (Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
+                        if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
                         {
-                            DowngradeQuality(Items[i]);
+                            Items[i].Quality = 0;
+                           
                         }
                         else
                         {
-                            Items[i].Quality = Items[i].Quality - Items[i].Quality;
+                            DowngradeQuality(Items[i]);
                         }
                     }
                     else
@@ -80,15 +81,17 @@ namespace GildedRose
 
         private void DowngradeQuality(Item item)
         {
-            if (item.Quality > 0 && item.Name != "Sulfuras, Hand of Ragnaros")
+            if (CanDowngradeQuality(item) && item.Name != "Sulfuras, Hand of Ragnaros")
             {
                 item.Quality = item.Quality - 1;
-                if(item.Name == "Conjured")
+                if(CanDowngradeQuality(item) && item.Name == "Conjured")
                 {
                     item.Quality = item.Quality - 1;
                 }
             }
         }
+        private bool CanDowngradeQuality(Item item) =>
+            item.Quality > 0;
 
     }
 }
