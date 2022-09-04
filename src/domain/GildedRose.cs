@@ -16,7 +16,7 @@ public class GildedRose
         {
             if (Items[i].Name != AGED_BRIE && Items[i].Name != BACKSTAGE)
             {
-                if (Items[i].Quality > 0)
+                if (HasAnyQuallity(Items[i]))
                 {
                     if (Items[i].Name != SULFURAS)
                     {
@@ -62,7 +62,7 @@ public class GildedRose
                 {
                     if (Items[i].Name != BACKSTAGE)
                     {
-                        if (Items[i].Quality > 0)
+                        if (HasAnyQuallity(Items[0]))
                         {
                             if (Items[i].Name != SULFURAS)
                             {
@@ -86,6 +86,9 @@ public class GildedRose
         }
 
     }
+
+    private bool HasAnyQuallity(Item item) =>
+        item.Quality > 0;
 
     private void IncreaseQuallity(Item item) =>
         item.Quality += 1;
