@@ -1,6 +1,7 @@
 ﻿namespace GildedRoses.Domain;
 public class GildedRose
 {
+    public const string SULFURAS = "Sulfuras, Hand of Ragnaros";
     public IList<Item> Items { get; }
     public GildedRose(IList<Item> Items)
     {
@@ -15,9 +16,9 @@ public class GildedRose
             {
                 if (Items[i].Quality > 0)
                 {
-                    if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+                    if (Items[i].Name != SULFURAS)
                     {
-                        Items[i].Quality = Items[i].Quality - 1;
+                        DegradeQuallity(Items[i]);
                     }
                 }
             }
@@ -48,7 +49,7 @@ public class GildedRose
                 }
             }
 
-            if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+            if (Items[i].Name != SULFURAS)
             {
                 Items[i].SellIn = Items[i].SellIn - 1;
             }
@@ -61,9 +62,9 @@ public class GildedRose
                     {
                         if (Items[i].Quality > 0)
                         {
-                            if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+                            if (Items[i].Name != SULFURAS)
                             {
-                                Items[i].Quality = Items[i].Quality - 1;
+                                DegradeQuallity(Items[i]);
                             }
                         }
                     }
@@ -81,8 +82,11 @@ public class GildedRose
                 }
             }
         }
+
     }
 
     private void IncreaseQuallity(Item item) =>
         item.Quality += 1;
+    private void DegradeQuallity(Item item) =>
+            item.Quality -= 1;
 }
