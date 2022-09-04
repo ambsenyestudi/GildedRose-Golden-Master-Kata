@@ -4,6 +4,7 @@ public class GildedRose
     public const string SULFURAS = "Sulfuras, Hand of Ragnaros";
     public const string AGED_BRIE = "Aged Brie";
     public const string BACKSTAGE = "Backstage passes to a TAFKAL80ETC concert";
+    public const int MAX_QUALLITY = 50;
     public IList<Item> Items { get; }
     public GildedRose(IList<Item> Items)
     {
@@ -26,7 +27,7 @@ public class GildedRose
             }
             else
             {
-                if (Items[i].Quality < 50)
+                if (Items[i].Quality < MAX_QUALLITY)
                 {
                     IncreaseQuallity(Items[i]);
 
@@ -34,7 +35,7 @@ public class GildedRose
                     {
                         if (Items[i].SellIn < 11)
                         {
-                            if (Items[i].Quality < 50)
+                            if (Items[i].Quality < MAX_QUALLITY)
                             {
                                 IncreaseQuallity(Items[i]);
                             }
@@ -42,7 +43,7 @@ public class GildedRose
 
                         if (Items[i].SellIn < 6)
                         {
-                            if (Items[i].Quality < 50)
+                            if (Items[i].Quality < MAX_QUALLITY)
                             {
                                 IncreaseQuallity(Items[i]);
                             }
@@ -77,7 +78,7 @@ public class GildedRose
                 }
                 else
                 {
-                    if (Items[i].Quality < 50)
+                    if (Items[i].Quality < MAX_QUALLITY)
                     {
                         IncreaseQuallity(Items[i]);
                     }
