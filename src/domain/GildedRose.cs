@@ -17,10 +17,7 @@ public class GildedRose
         {
             if (Items[i].Name != AGED_BRIE && Items[i].Name != BACKSTAGE)
             {
-                if (HasAnyQuality(Items[i]))
-                {
-                    DegradeQuality(Items[i]);
-                }
+                DegradeQuality(Items[i]);
             }
             else
             {
@@ -91,9 +88,13 @@ public class GildedRose
     }
     private void DegradeQuality(Item item)
     {
-        if (!IsLegendary(item))
+
+        if (HasAnyQuality(item))
         {
-            item.Quality -= 1;
+            if (!IsLegendary(item))
+            {
+                item.Quality -= 1;
+            }
         }
     }
             
