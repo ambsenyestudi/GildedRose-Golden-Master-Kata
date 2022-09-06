@@ -89,12 +89,9 @@ public class GildedRose
     private void DegradeQuality(Item item)
     {
 
-        if (HasAnyQuality(item))
+        if (!IsLegendary(item) && HasAnyQuality(item))
         {
-            if (!IsLegendary(item))
-            {
-                item.Quality -= 1;
-            }
+            item.Quality -= 1;
         }
     }
             
