@@ -43,7 +43,11 @@ public class GildedRose
 
             if (Items[i].SellIn < 0)
             {
-                if (Items[i].Name != AGED_BRIE)
+                if (Items[i].Name == AGED_BRIE)
+                {
+                    IncreaseQuality(Items[i]);
+                }
+                else
                 {
                     if (Items[i].Name == BACKSTAGE)
                     {
@@ -53,10 +57,6 @@ public class GildedRose
                     {
                         DegradeQuality(Items[i]);
                     }
-                }
-                else
-                {
-                    IncreaseQuality(Items[i]); 
                 }
             }
         }
