@@ -47,13 +47,7 @@ public class GildedRose
                 {
                     if (Items[i].Name != BACKSTAGE)
                     {
-                        if (HasAnyQuality(Items[i]))
-                        {
-                            if (Items[i].Name != SULFURAS)
-                            {
-                                DegradeQuality(Items[i]);
-                            }
-                        }
+                        DegradeQuality(Items[i]);
                     }
                     else
                     {
