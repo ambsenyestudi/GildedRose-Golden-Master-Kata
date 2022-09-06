@@ -52,10 +52,7 @@ public class GildedRose
                 }
             }
 
-            if (!IsLegendary(Items[i]))
-            {
-                Items[i].SellIn = Items[i].SellIn - 1;
-            }
+            Items[i].SellIn = FigureSellIn(Items[i]);
 
             if (Items[i].SellIn < 0)
             {
@@ -87,6 +84,10 @@ public class GildedRose
         }
 
     }
+    private int FigureSellIn(Item item) =>
+        IsLegendary(item)
+        ? item.SellIn - 1
+        : item.SellIn;
 
     private bool IsLegendary(Item item) =>
         item.Name == SULFURAS;
