@@ -15,11 +15,7 @@ public class GildedRose
     {
         for (var i = 0; i < Items.Count; i++)
         {
-            if (Items[i].Name != AGED_BRIE && Items[i].Name != BACKSTAGE)
-            {
-                DegradeQuality(Items[i]);
-            }
-            else
+            if (Items[i].Name == AGED_BRIE || Items[i].Name == BACKSTAGE)
             {
 
                 IncreaseQuality(Items[i]);
@@ -37,6 +33,10 @@ public class GildedRose
                     }
                 }
 
+            }
+            else
+            {
+                DegradeQuality(Items[i]);
             }
 
             Items[i].SellIn = FigureSellIn(Items[i]);
