@@ -52,7 +52,7 @@ public class GildedRose
                 }
             }
 
-            if (Items[i].Name != SULFURAS)
+            if (!IsLegendary(Items[i]))
             {
                 Items[i].SellIn = Items[i].SellIn - 1;
             }
@@ -87,6 +87,9 @@ public class GildedRose
         }
 
     }
+
+    private bool IsLegendary(Item item) =>
+        item.Name == SULFURAS;
 
     private bool HasAnyQuallity(Item item) =>
         item.Quality > 0;
