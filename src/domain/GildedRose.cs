@@ -45,13 +45,13 @@ public class GildedRose
             {
                 if (Items[i].Name != AGED_BRIE)
                 {
-                    if (Items[i].Name != BACKSTAGE)
+                    if (Items[i].Name == BACKSTAGE)
                     {
-                        DegradeQuality(Items[i]);
+                        EnsuerQualityZero(Items[i]);
                     }
                     else
                     {
-                        EnsuerQualityZero(Items[i]);
+                        DegradeQuality(Items[i]);
                     }
                 }
                 else
