@@ -51,7 +51,7 @@ public class GildedRose
                     }
                     else
                     {
-                        Items[i].Quality = Items[i].Quality - Items[i].Quality;
+                        EnsuerQualityZero(Items[i]);
                     }
                 }
                 else
@@ -62,6 +62,15 @@ public class GildedRose
         }
 
     }
+
+    private void EnsuerQualityZero(Item item)
+    {
+        if(item.Quality != 0)
+        {
+            item.Quality = 0;
+        }
+    }
+
     private int FigureSellIn(Item item) =>
         IsLegendary(item)
         ? item.SellIn - 1
