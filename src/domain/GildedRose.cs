@@ -19,10 +19,7 @@ public class GildedRose
             {
                 if (HasAnyQuality(Items[i]))
                 {
-                    if (!IsLegendary(Items[i]))
-                    {
-                        DegradeQuality(Items[i]);
-                    }
+                    DegradeQuality(Items[i]);
                 }
             }
             else
@@ -92,6 +89,12 @@ public class GildedRose
             item.Quality += 1;
         }
     }
-    private void DegradeQuality(Item item) =>
+    private void DegradeQuality(Item item)
+    {
+        if (!IsLegendary(item))
+        {
             item.Quality -= 1;
+        }
+    }
+            
 }
