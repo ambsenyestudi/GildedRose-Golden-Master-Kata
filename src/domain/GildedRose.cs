@@ -19,7 +19,7 @@ public class GildedRose
             {
                 if (HasAnyQuality(Items[i]))
                 {
-                    if (Items[i].Name != SULFURAS)
+                    if (!IsLegendary(Items[i]))
                     {
                         DegradeQuality(Items[i]);
                     }
