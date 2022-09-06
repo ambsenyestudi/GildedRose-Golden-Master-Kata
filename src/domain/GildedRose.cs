@@ -27,29 +27,22 @@ public class GildedRose
             }
             else
             {
-                if (Items[i].Quality < MAX_QUALLITY)
+
+                IncreaseQuallity(Items[i]);
+
+                if (Items[i].Name == BACKSTAGE)
                 {
-                    IncreaseQuallity(Items[i]);
-
-                    if (Items[i].Name == BACKSTAGE)
+                    if (Items[i].SellIn < 11)
                     {
-                        if (Items[i].SellIn < 11)
-                        {
-                            if (Items[i].Quality < MAX_QUALLITY)
-                            {
-                                IncreaseQuallity(Items[i]);
-                            }
-                        }
+                        IncreaseQuallity(Items[i]);
+                    }
 
-                        if (Items[i].SellIn < 6)
-                        {
-                            if (Items[i].Quality < MAX_QUALLITY)
-                            {
-                                IncreaseQuallity(Items[i]);
-                            }
-                        }
+                    if (Items[i].SellIn < 6)
+                    {
+                        IncreaseQuallity(Items[i]);
                     }
                 }
+
             }
 
             Items[i].SellIn = FigureSellIn(Items[i]);
@@ -75,10 +68,7 @@ public class GildedRose
                 }
                 else
                 {
-                    if (Items[i].Quality < MAX_QUALLITY)
-                    {
-                        IncreaseQuallity(Items[i]);
-                    }
+                    IncreaseQuallity(Items[i]); 
                 }
             }
         }
@@ -95,8 +85,13 @@ public class GildedRose
     private bool HasAnyQuallity(Item item) =>
         item.Quality > 0;
 
-    private void IncreaseQuallity(Item item) =>
-        item.Quality += 1;
+    private void IncreaseQuallity(Item item)
+    {
+        if (item.Quality < MAX_QUALLITY)
+        {
+            item.Quality += 1;
+        }
+    }
     private void DegradeQuallity(Item item) =>
             item.Quality -= 1;
 }
