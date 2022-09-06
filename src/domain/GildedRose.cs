@@ -4,7 +4,7 @@ public class GildedRose
     public const string SULFURAS = "Sulfuras, Hand of Ragnaros";
     public const string AGED_BRIE = "Aged Brie";
     public const string BACKSTAGE = "Backstage passes to a TAFKAL80ETC concert";
-    public const int MAX_QUALLITY = 50;
+    public const int MAX_QUALITY = 50;
     public IList<Item> Items { get; }
     public GildedRose(IList<Item> Items)
     {
@@ -17,29 +17,29 @@ public class GildedRose
         {
             if (Items[i].Name != AGED_BRIE && Items[i].Name != BACKSTAGE)
             {
-                if (HasAnyQuallity(Items[i]))
+                if (HasAnyQuality(Items[i]))
                 {
                     if (Items[i].Name != SULFURAS)
                     {
-                        DegradeQuallity(Items[i]);
+                        DegradeQuality(Items[i]);
                     }
                 }
             }
             else
             {
 
-                IncreaseQuallity(Items[i]);
+                IncreaseQuality(Items[i]);
 
                 if (Items[i].Name == BACKSTAGE)
                 {
                     if (Items[i].SellIn < 11)
                     {
-                        IncreaseQuallity(Items[i]);
+                        IncreaseQuality(Items[i]);
                     }
 
                     if (Items[i].SellIn < 6)
                     {
-                        IncreaseQuallity(Items[i]);
+                        IncreaseQuality(Items[i]);
                     }
                 }
 
@@ -53,11 +53,11 @@ public class GildedRose
                 {
                     if (Items[i].Name != BACKSTAGE)
                     {
-                        if (HasAnyQuallity(Items[0]))
+                        if (HasAnyQuality(Items[0]))
                         {
                             if (Items[i].Name != SULFURAS)
                             {
-                                DegradeQuallity(Items[i]);
+                                DegradeQuality(Items[i]);
                             }
                         }
                     }
@@ -68,7 +68,7 @@ public class GildedRose
                 }
                 else
                 {
-                    IncreaseQuallity(Items[i]); 
+                    IncreaseQuality(Items[i]); 
                 }
             }
         }
@@ -82,16 +82,16 @@ public class GildedRose
     private bool IsLegendary(Item item) =>
         item.Name == SULFURAS;
 
-    private bool HasAnyQuallity(Item item) =>
+    private bool HasAnyQuality(Item item) =>
         item.Quality > 0;
 
-    private void IncreaseQuallity(Item item)
+    private void IncreaseQuality(Item item)
     {
-        if (item.Quality < MAX_QUALLITY)
+        if (item.Quality < MAX_QUALITY)
         {
             item.Quality += 1;
         }
     }
-    private void DegradeQuallity(Item item) =>
+    private void DegradeQuality(Item item) =>
             item.Quality -= 1;
 }
